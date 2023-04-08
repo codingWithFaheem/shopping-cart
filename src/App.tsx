@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React , {useState}  from 'react';
 import './App.css';
+import {Routes , Route ,Navigate } from 'react-router-dom';
+import {Home , Store ,About , Contact} from './pages'
+import {Navbar, ShoppingCart} from './components';
+import { ShoppingCartProvider } from './context/ShopingCartContext';
 
 function App() {
+  const [isCartOpen , setCartOpen] = useState(false);
+  const closeCart = () => setCartOpen(false); 
+  const openCart = () => setCartOpen(true); 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app h-screen z-0">
+      <ShoppingCartProvider>
+          <Navbar openCart={openCart} />
+          <ShoppingCart  isCartOpen={isCartOpen} closeCart = {closeCart} />
+          
+          <Routes>
+            <Route path='/' element = {<Home isCartOpen = {isCartOpen}/>} />
+            <Route path='/store' element = {<Store />} />
+            <Route path='/about' element = {<About />} />
+            <Route path='/contact' element = {<Contact/>} />
+            <Route path="*" element ={<Navigate to ="/"/>}  />
+          </Routes>
+      </ShoppingCartProvider>
     </div>
   );
 }
