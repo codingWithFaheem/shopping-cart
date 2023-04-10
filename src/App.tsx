@@ -23,6 +23,7 @@ function App() {
             <Route path='/contact' element = {<Contact/>} />
             <Route path="*" element ={<Navigate to ="/"/>}  />
           </Routes>
+
       </ShoppingCartProvider>
     </div>
   );
