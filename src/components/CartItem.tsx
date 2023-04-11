@@ -1,6 +1,5 @@
 import React from 'react'
 import { useShoppingCart } from '../context/ShopingCartContext';
-import StoreItem from '../data/item.json';
 import { ImBin } from 'react-icons/im';
 import { FaTruck } from 'react-icons/fa';
 type CartItemProps = {
@@ -9,8 +8,8 @@ type CartItemProps = {
 }
 
 const CartItem = ({id, quantity}: CartItemProps) => {
-    const {removeFromCart } = useShoppingCart()
-    const  item = StoreItem.find(i => i.id === id)
+    const {removeFromCart , storeItems } = useShoppingCart()
+    const  item = storeItems.find(i => i.id === id)
         if(item == null) return null     
        
   return (

@@ -1,14 +1,10 @@
 import React from 'react'
 import {GrClose as CloseBtn} from 'react-icons/gr' ;
 import { useShoppingCart } from '../context/ShopingCartContext';
-import StoreItem from '../data/item.json'
 import CartItem from './CartItem';
-type ShoppingCartProps =  {
-  closeCart: () => void
-  isCartOpen : boolean 
-}
- const ShoppingCart = ({isCartOpen , closeCart}: ShoppingCartProps) => {
-  const {cartItems} = useShoppingCart()
+
+ const ShoppingCart = () => {
+  const {cartItems , storeItems , isCartOpen , closeCart} = useShoppingCart()
     const showCart = isCartOpen ? 'w-[400px]' : 'hidden'
   return (
     <div className={`fixed h-screen top-0 right-0 ${showCart} py-8 px-6  
@@ -31,7 +27,7 @@ type ShoppingCartProps =  {
                 <p className='product-font text-[22px] font-bold'>Subtotal</p>
                 <p className='product-font text-[22px] font-bold'>$ {" "} {
                         cartItems.reduce((total , cartItem) => {
-                          const item = StoreItem.find(i => i.id === cartItem.id)
+                          const item = storeItems.find(i => i.id === cartItem.id)
                           return total + (item?.price  || 0 ) * cartItem.quantity
                         },0)
 

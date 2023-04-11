@@ -1,16 +1,16 @@
-import React, {FC} from 'react'
+import React  from 'react'
 import {Link} from 'react-router-dom'
 import {AiOutlineHeart} from 'react-icons/ai'
 import {SlLike} from 'react-icons/sl'
 import {SlStar} from 'react-icons/sl'
+import { useShoppingCart } from '../context/ShopingCartContext'
 
-type HomeProps = {
-  isCartOpen : boolean
-}
-const Home =  ({isCartOpen}: HomeProps) =>  {
-  const cartState = isCartOpen ? 'bg-[#7d8994a9]' :'bg-gradient-to-r from-[#65c498] to-[#7cd7ee]'
+
+const Home =  () =>  {
+  const {isCartOpen} = useShoppingCart()
+  const cartState = isCartOpen ? 'blur-sm' :''
   return (
-    <div className={` h-[100vh] pt-20  ${cartState} `}>
+    <div className={`bg-gradient-to-r from-[#65c498] to-[#7cd7ee]   h-[100vh] pt-20  ${cartState} `}>
           <div className=' lg:w-[1200px] h-[63vh] w-full m-auto
           flex
           '>

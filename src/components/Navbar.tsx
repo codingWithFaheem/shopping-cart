@@ -3,11 +3,9 @@ import {BiShoppingBag} from 'react-icons/bi'
 import { useShoppingCart } from '../context/ShopingCartContext'
 import {Link} from 'react-router-dom'
 
-type NavBarProp = {
-    openCart : () => void
-}
-const Navbar = ({openCart} : NavBarProp ) => {
-    const {cartQuantity } = useShoppingCart()
+
+const Navbar = () => {
+    const {cartQuantity, openCart } = useShoppingCart()
   return (
     <div className='bg-[#123]'>
             <nav className=' sticky top-0 m-auto bg-[#123] flex justify-between items-center h-20 lg:w-[1240px] px-2'>
