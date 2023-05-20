@@ -14,6 +14,8 @@ type StoreItems = {
 type ShopingCartContext = {
    openCart: () => void ;
     closeCart: () => void ;
+    openMenu: () => void ;
+    closeMenu: () => void ;
     getItemQuantity: (id: number) => number ;
     increaseCartQuantity: (id: number) => void  ;
     decreaseCartQuantity: (id: number) => void ;
@@ -22,6 +24,7 @@ type ShopingCartContext = {
     cartItems : CartItem[] ;
     storeItems : StoreItems[]
     isCartOpen : boolean ;
+     isMenuBarOpen : boolean ;
 
 
 }
@@ -37,12 +40,16 @@ export const useShoppingCart = () => {
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const [isCartOpen, setIsCartOpen] = useState(false)
+  const [isMenuBarOpen, setIsMenuBarOpen] = useState(false)
     const [cartItems , setCartItems] =  useLocalStorage<CartItem[]>("shopping-cart" ,[]) 
     const [storeItems , setStoreItems] = useState<StoreItems[]>([])
     const storeItemRef = collection(db,"store")
     
     const openCart = () => setIsCartOpen(true)
     const closeCart = () => setIsCartOpen(false)
+    const openMenu = () => setIsMenuBarOpen(true) 
+    const closeMenu = () => setIsMenuBarOpen(false) 
+
     const getStoreItem = async () => {
       try{
           const   data     = await getDocs(storeItemRef)
@@ -115,6 +122,8 @@ return (
         <ShoppingCartContext.Provider   value={
                {   openCart,
                     closeCart,
+                    openMenu,
+                    closeMenu,
                     getItemQuantity,
                     increaseCartQuantity,
                     decreaseCartQuantity,
@@ -122,7 +131,9 @@ return (
                     cartItems,
                     cartQuantity ,
                     storeItems,
-                    isCartOpen 
+                    isCartOpen ,
+                    isMenuBarOpen
+                    
 
                }
         }>

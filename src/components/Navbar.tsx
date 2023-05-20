@@ -2,14 +2,27 @@ import React  from 'react'
 import {BiShoppingBag} from 'react-icons/bi'
 import { useShoppingCart } from '../context/ShopingCartContext'
 import {Link} from 'react-router-dom'
+import {CiMenuBurger} from 'react-icons/ci';
+import {CiMenuFries} from 'react-icons/ci';
 
 
 const Navbar = () => {
-    const {cartQuantity, openCart } = useShoppingCart()
+    const {cartQuantity, isMenuBarOpen, openMenu  , openCart } = useShoppingCart()
+    // const cheatMenuIcon = isMenuBarOpen ? <CiMenuFries /> ?  <CiMenuBurger />
   return (
     <div className='bg-[#123]'>
-            <nav className=' sticky top-0 m-auto bg-[#123] flex justify-between items-center h-20 lg:w-[1240px] px-2'>
-                <ul className='  w-[22rem] flex justify-around item-center text-[#4dcfb5] font-bold'>
+            <nav className=' sticky top-0 m-auto bg-[#123] flex justify-between items-center h-20 lg:w-[1240px] px-4'>
+                <div className='blok lg:hidden p-4' onClick={openMenu}>
+                        { isMenuBarOpen ?  
+                          <CiMenuFries  className='text-[#4dcfb5]  text-[32px]'/>
+
+                          :
+                        <CiMenuBurger  className='text-[#4dcfb5]  text-[32px]'/>
+
+                    }
+                </div>
+              <p className='product-font text-[#4dcfb5] text-[24px] font-bold'>homCee</p>
+                <ul className='  w-[22rem] hidden lg:flex justify-around item-center text-[#4dcfb5] font-bold'>
                     <li className=' cursor-pointer'><Link to='/' >Home </Link></li>
                     <li className=' cursor-pointer'><Link to='/store'> Store </Link></li>
                     <li className='cursor-pointer'> <Link to='/about' >About</Link></li>

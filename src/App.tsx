@@ -2,17 +2,17 @@ import React  from 'react';
 import './App.css';
 import {Routes , Route ,Navigate } from 'react-router-dom';
 import {Home , Store ,About , Contact} from './pages'
-import {Navbar, ShoppingCart} from './components';
-import { ShoppingCartProvider } from './context/ShopingCartContext';
+import {Navbar, ShoppingCart, SideBarMenu} from './components';
+import { ShoppingCartProvider  } from './context/ShopingCartContext';
 
 function App() {
- 
 
   return (
-    <div className="app h-screen z-0">
+    <div className="app h-screen z-10">
       <ShoppingCartProvider>
           <Navbar />
           <ShoppingCart/>   
+           <SideBarMenu />
           <Routes>
             <Route path='/' element = {<Home />} />
             <Route path='/store' element = {<Store />} />

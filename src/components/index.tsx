@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
 import StoreItem from "./StoreItem";
 import ShoppingCart from './ShoppingCart';
-
-export  {Navbar,ShoppingCart , StoreItem } ;
+import { SideBarMenu } from "./SideBarMenu";
+export  {Navbar,ShoppingCart , SideBarMenu , StoreItem } ;
