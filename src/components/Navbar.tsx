@@ -8,10 +8,9 @@ import {CiMenuFries} from 'react-icons/ci';
 
 const Navbar = () => {
     const {cartQuantity, isMenuBarOpen, openMenu  , openCart } = useShoppingCart()
-    // const cheatMenuIcon = isMenuBarOpen ? <CiMenuFries /> ?  <CiMenuBurger />
   return (
     <div className='bg-[#123]'>
-            <nav className=' sticky top-0 m-auto bg-[#123] flex justify-between items-center h-20 lg:w-[1240px] px-4'>
+            <nav className=' sticky top-0 m-auto bg-[#123] flex justify-between items-center h-20 lg:w-[1024px] px-4'>
                 <div className='blok lg:hidden p-4' onClick={openMenu}>
                         { isMenuBarOpen ?  
                           <CiMenuFries  className='text-[#4dcfb5]  text-[32px]'/>
@@ -25,8 +24,9 @@ const Navbar = () => {
                 <ul className='  w-[22rem] hidden lg:flex justify-around item-center text-[#4dcfb5] font-bold'>
                     <li className=' cursor-pointer'><Link to='/' >Home </Link></li>
                     <li className=' cursor-pointer'><Link to='/store'> Store </Link></li>
-                    <li className='cursor-pointer'> <Link to='/about' >About</Link></li>
                     <li className=' cursor-pointer'><Link to='/contact' >Contact </Link></li>
+                    <li className=' cursor-pointer'>Blogs</li>
+
                 </ul>
                { cartQuantity > 0 &&
                 <div className=' w-[64px] h-[64px] rounded-full relative cursor-pointer'
