@@ -20,7 +20,7 @@ const Navbar = () => {
 
                     }
                 </div>
-              <p className='product-font text-[#4dcfb5] text-[24px] font-bold'>homCee</p>
+              <p className='product-font text-[#4dcfb5] text-[24px] font-bold'><Link to='/' >homCee</Link></p>
                 <ul className='  w-[22rem] hidden lg:flex justify-around item-center text-[#4dcfb5] font-bold'>
                     <li className=' cursor-pointer'><Link to='/' >Home </Link></li>
                     <li className=' cursor-pointer'><Link to='/store'> Store </Link></li>
@@ -28,14 +28,18 @@ const Navbar = () => {
                     <li className=' cursor-pointer'>Blogs</li>
 
                 </ul>
-               { cartQuantity > 0 &&
+               
                 <div className=' w-[64px] h-[64px] rounded-full relative cursor-pointer'
                     onClick={openCart}
                 >
-                    <BiShoppingBag className='text-white mt-3 ml-4 text-[28px] cursor-pointer'/>
+               { cartQuantity > 0 &&   
+               <>
+               <BiShoppingBag className='text-white mt-3 ml-4 text-[28px] cursor-pointer'/>
                     <span className='bg-[#375a57] text-green-300 text-[16px]  absolute bottom-[0.1rem] left-[2rem] px-[7px] rounded-full '>{cartQuantity}</span>
-                </div>
-                }
+                </>
+                  }
+                    </div>
+                
             </nav>
       </div>
   )

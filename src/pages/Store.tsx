@@ -7,11 +7,11 @@ const Store:FC = () =>  {
  const {storeItems , isCartOpen , closeCart} = useShoppingCart()
   const cartState = isCartOpen ? 'blur-sm' :''
   return (
-    <div className={`${cartState} lg:w-[1240px] 
+    <div className=' bg-gradient-to-r from-[#e4fdf2] to-[#e7e8e8]'>
+    <div className={`${cartState} lg:w-[1240px]  
      flex flex-wrap justify-center items-start gap-7 
-     m-auto mt-[7rem] px-6 py-20 
-      bg-gradient-to-r from-[#e4fdf2] to-[#e7e8e8]
-    `} onClick={closeCart}>
+     m-auto  px-6 py-40 
+      `} onClick={closeCart}>
     {storeItems.map(item => { 
       return <div>
             <StoreItem  key={item.id} {...item} />
@@ -20,6 +20,8 @@ const Store:FC = () =>  {
         
         </div>
 })} 
+    </div>
+
     </div>
   )
 }

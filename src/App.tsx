@@ -18,8 +18,9 @@ function App() {
             <Route path='/store' element = {<Store />} />
             <Route path='/contact' element = {<Contact/>} />
             <Route path="*" element ={<Navigate to ="/"/>}  />
+            
           </Routes>
-
+        
       </ShoppingCartProvider>
     </div>
   );
