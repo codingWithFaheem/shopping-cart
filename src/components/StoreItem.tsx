@@ -17,18 +17,18 @@ const StoreItem:FC<Props> = ({id , name , price , imgUrl}) => {
     return quantity > 1 ? removeFromCart(id) : increaseCartQuantity(id)
   }
   return (
-    <div className='  bg-white px-2 rounded-xl  w-[21rem] h-[29rem] overflow-hidden relative' >
+    <div className='  bg-white px-2 rounded-xl w-[20rem] h-[29rem] overflow-hidden relative' >
               {/* <div className=' absolute top-[16rem] right-4 rounded-xl px-4 py-[2px] bg-[#123]'>
                 <p className='text-white text-[14px] font-2 font-bold'>Discout upto 20% </p>
               </div> */}
-                <img src={imgUrl} alt="" className= ' h-[18rem] w-full' />
-                <div className=' h-[9rem] px-4 py-3'>
+                <img src={imgUrl} alt="" className= ' h-[18rem] lg:h-[19rem]  lg:w-full ' />
+                <div className=' h-[9rem] px-4 '>
                   <div>
-                   <p className='produtct-fon text-[19px] font-bold text-[#37876b]'>{name}</p>
+                   <p className='produtct-font text-[17px]  font-bold text-[#37876b]'>{name}</p>
                     <p className=' text-[13px] text-gray-400 semi-bold'>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
                   </div>
 
-                    <div className='mt-1 flex items-center justify-between w-[5rem]'>
+                    <div className=' flex items-center justify-between w-[5rem]'>
                           <s className=' text-gray-400'>$ {price + 30}</s>
                         <p> {price}</p>
                     </div>
